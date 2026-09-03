@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scrubby Dubby Cleaning &middot; Kerikeri, Bay of Islands</title>
+<meta name="description" content="Scrubby Dubby Cleaning is a small family owned cleaning business in Kerikeri. Carpet and Persian rug cleaning, commercial kitchen and cafe deep cleans, residential and commercial cleaning across the Bay of Islands.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23072B31'/%3E%3Ccircle cx='13' cy='13' r='5.5' fill='%23C8F35C'/%3E%3Ccircle cx='22' cy='21' r='3.5' fill='%232E8C8C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --ink:#072B31;
+  --ink-2:#0B3A42;
+  --sea:#14606B;
+  --sea-light:#2E8C8C;
+  --lime:#C8F35C;
+  --lime-deep:#A9DC35;
+  --sand:#F1EADC;
+  --paper:#FBF9F5;
+  --white:#FFFFFF;
+  --text:#0D2A2E;
+  --muted:#4C6B6F;
+  --muted-on-dark:#A9C6C7;
+  --line:#DCD3C4;
+  --line-dark:rgba(255,255,255,.14);
+  --radius:18px;
+  --radius-lg:26px;
+  --shadow:0 18px 40px -24px rgba(7,43,49,.45);
+  --shadow-lg:0 40px 80px -40px rgba(7,43,49,.6);
+  --maxw:1180px;
+  --pad:clamp(20px,5vw,44px);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:clamp(16px,.4vw + 15px,17.5px);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.06;margin:0;letter-spacing:-.015em;font-optical-sizing:auto}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--sea-light);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.section{padding-block:clamp(56px,8vw,104px)}
+section[id]{scroll-margin-top:96px}
+
+/* ---------- concept bar ---------- */
+.concept{
+  background:var(--ink);
+  color:#CFE3E2;
+  font-size:12.5px;
+  letter-spacing:.02em;
+  padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.concept .wrap{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:center;text-align:center}
+.concept b{color:var(--lime);font-weight:600}
+.concept .dot{color:rgba(255,255,255,.3);display:none}
+@media (min-width:760px){.concept .dot{display:inline}}
+
+/* ---------- header ---------- */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,249,245,.88);
+  backdrop-filter:saturate(160%) blur(12px);
+  -webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.header .wrap{display:flex;align-items:center;gap:16px;min-height:70px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
+.mark{
+  width:38px;height:38px;border-radius:12px;flex:none;
+  background:var(--ink);position:relative;
+}
+.mark::before,.mark::after{content:"";position:absolute;border-radius:50%}
+.mark::before{width:16px;height:16px;background:var(--lime);left:7px;top:7px}
+.mark::after{width:11px;height:11px;background:var(--sea-light);right:6px;bottom:6px}
+.brand-name{font-family:var(--display);font-weight:900;font-size:19px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.brand-sub{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
+.nav{display:none;gap:26px;font-size:15px;font-weight:600}
+.nav a{text-decoration:none;color:var(--ink);opacity:.82;padding-block:6px}
+.nav a:hover{opacity:1;color:var(--sea)}
+@media (min-width:900px){.nav{display:flex}}
+.header .btn{display:none}
+@media (min-width:600px){.header .btn{display:inline-flex}}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--body);font-weight:700;font-size:15.5px;letter-spacing:.005em;
+  padding:13px 22px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;
+  transition:transform .16s ease,box-shadow .16s ease,background .16s ease,color .16s ease;
+  white-space:nowrap;cursor:pointer;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-primary{background:var(--lime);color:var(--ink);box-shadow:0 10px 24px -14px rgba(7,43,49,.8)}
+.btn-primary:hover{background:var(--lime-deep);transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.btn-dark:hover{background:var(--sea);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(7,43,49,.28);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(7,43,49,.05)}
+.btn-ghost-light{border-color:rgba(255,255,255,.35);color:var(--white)}
+.btn-ghost-light:hover{border-color:var(--lime);color:var(--lime)}
+.btn-lg{padding:16px 28px;font-size:16.5px}
+
+/* ---------- photo frames + placeholder marker ---------- */
+.ph{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--sand);isolation:isolate}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph::after{
+  content:"placeholder image";
+  position:absolute;right:10px;bottom:10px;
+  font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:rgba(255,255,255,.92);background:rgba(7,43,49,.62);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  padding:5px 9px;border-radius:999px;pointer-events:none;
+}
+
+/* ---------- eyebrow / heads ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:11.5px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--sea);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--lime-deep);border-radius:2px}
+.eyebrow.on-dark{color:var(--lime)}
+.eyebrow.on-dark::before{background:var(--lime)}
+h1{font-size:clamp(38px,7.4vw,66px);font-weight:900;letter-spacing:-.03em}
+h2{font-size:clamp(29px,4.4vw,45px);font-weight:900;letter-spacing:-.025em}
+h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
+.lede{font-size:clamp(17px,1.4vw,19.5px);color:var(--muted);line-height:1.62;max-width:56ch}
+.lede.on-dark{color:var(--muted-on-dark)}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(1100px 520px at 88% -8%,rgba(46,140,140,.16),transparent 62%),
+    radial-gradient(760px 420px at -6% 8%,rgba(200,243,92,.20),transparent 60%),
+    var(--paper);
+  padding-top:clamp(38px,6vw,66px);
+  padding-bottom:clamp(48px,7vw,88px);
+  overflow:hidden;
+}
+.hero-grid{display:grid;gap:clamp(30px,4.5vw,52px);align-items:center}
+@media (min-width:960px){.hero-grid{grid-template-columns:1.04fr .96fr}}
+.hero h1{margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--sea);position:relative;z-index:0;isolation:isolate;white-space:nowrap}
+.hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:.06em;height:.28em;
+  background:rgba(200,243,92,.55);z-index:-1;border-radius:3px;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--ink);
+  background:var(--white);border:1px solid var(--line);
+  padding:7px 13px;border-radius:999px;
+}
+.chip svg{width:14px;height:14px;color:var(--sea-light);flex:none}
+.hero-media{position:relative}
+.hero-media .ph{aspect-ratio:4/3;box-shadow:var(--shadow-lg)}
+@media (min-width:960px){.hero-media .ph{aspect-ratio:5/4}}
+.hero-badge{
+  position:absolute;left:-6px;bottom:-20px;
+  background:var(--ink);color:var(--white);
+  border-radius:16px;padding:14px 18px;max-width:240px;
+  box-shadow:var(--shadow-lg);
+}
+.hero-badge strong{display:block;font-family:var(--display);font-size:15.5px;font-weight:700;line-height:1.2}
+.hero-badge span{display:block;font-size:12.5px;color:var(--muted-on-dark);margin-top:4px;line-height:1.4}
+@media (min-width:960px){.hero-badge{left:-28px;bottom:-26px}}
+
+/* ---------- services ---------- */
+.svc-head{display:grid;gap:18px;margin-bottom:clamp(30px,4vw,46px)}
+@media (min-width:900px){.svc-head{grid-template-columns:1fr .9fr;align-items:end;gap:40px}}
+.grid-svc{display:grid;gap:16px}
+@media (min-width:640px){.grid-svc{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.grid-svc{grid-template-columns:repeat(6,1fr)}}
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;display:flex;flex-direction:column;gap:11px;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#C9BFAC}
+.card .ico{
+  width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  background:var(--sand);color:var(--sea);margin-bottom:4px;flex:none;
+}
+.card .ico svg{width:23px;height:23px}
+.card p{font-size:15px;color:var(--muted);line-height:1.58}
+.card.feature{
+  background:var(--ink);border-color:var(--ink);color:var(--white);
+  position:relative;overflow:hidden;padding:28px;
+}
+.card.feature::before{
+  content:"";position:absolute;right:-70px;top:-70px;width:190px;height:190px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,rgba(200,243,92,.30),transparent 68%);
+}
+.card.feature .ico{background:rgba(200,243,92,.16);color:var(--lime)}
+.card.feature p{color:var(--muted-on-dark);font-size:15.5px}
+.card.feature h3{color:var(--white)}
+.tag{
+  align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink);background:var(--lime);padding:4px 10px;border-radius:999px;margin-bottom:2px;
+}
+.grid-svc>li{display:flex}
+.grid-svc .card{flex:1}
+@media (min-width:1000px){
+  .grid-svc>li{grid-column:span 3}
+  .grid-svc>li.feature-cell{grid-column:span 2}
+}
+
+/* ---------- split feature bands ---------- */
+.band{background:var(--white);border-block:1px solid var(--line)}
+.band-dark{background:var(--ink);color:var(--white);border:0}
+.split{display:grid;gap:clamp(28px,4.5vw,60px);align-items:center}
+@media (min-width:920px){
+  .split{grid-template-columns:1fr 1fr}
+  .split.rev .split-media{order:-1}
+}
+.split-media .ph{aspect-ratio:4/5;box-shadow:var(--shadow)}
+@media (min-width:920px){.split-media .ph{aspect-ratio:3/4}}
+.collage{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
+.collage .ph:first-child{aspect-ratio:3/4}
+.collage .ph:last-child{aspect-ratio:1/1}
+.pointlist{display:grid;gap:14px;margin-top:26px}
+.pointlist li{display:flex;gap:13px;align-items:flex-start;font-size:16px;line-height:1.55}
+.pointlist .tick{
+  width:24px;height:24px;border-radius:50%;flex:none;margin-top:2px;
+  background:var(--lime);color:var(--ink);display:grid;place-items:center;
+}
+.pointlist .tick svg{width:13px;height:13px}
+.band-dark .pointlist li{color:#DDEAE8}
+.band-dark .pointlist .tick{background:rgba(200,243,92,.18);color:var(--lime)}
+
+/* ---------- quote pull ---------- */
+.pull{
+  border-left:3px solid var(--lime-deep);padding-left:22px;margin-top:28px;
+}
+.pull q{
+  font-family:var(--display);font-size:clamp(19px,2.2vw,25px);font-weight:600;
+  line-height:1.32;letter-spacing:-.015em;display:block;quotes:'"' '"';
+}
+.pull cite{display:block;font-style:normal;font-size:13.5px;color:var(--muted);margin-top:12px;font-weight:600}
+.band-dark .pull cite{color:var(--muted-on-dark)}
+
+/* ---------- areas ---------- */
+.areas{display:grid;gap:14px;margin-top:36px}
+@media (min-width:700px){.areas{grid-template-columns:repeat(3,1fr)}}
+.area{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;position:relative;overflow:hidden;
+}
+.area .pin{width:30px;height:30px;border-radius:9px;background:var(--sand);color:var(--sea);display:grid;place-items:center;margin-bottom:14px}
+.area .pin svg{width:16px;height:16px}
+.area h3{font-size:22px;margin-bottom:6px}
+.area p{font-size:14.5px;color:var(--muted)}
+.area-note{margin-top:20px;font-size:15px;color:var(--muted)}
+.area-note a{color:var(--sea);font-weight:700;text-decoration:none;border-bottom:2px solid rgba(46,140,140,.3)}
+.area-note a:hover{border-color:var(--sea)}
+
+/* ---------- reviews ---------- */
+.reviews{display:grid;gap:18px;margin-top:38px}
+@media (min-width:860px){.reviews{grid-template-columns:1.05fr .95fr}}
+.review{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:clamp(26px,3.4vw,38px);box-shadow:var(--shadow);display:flex;flex-direction:column;
+}
+.review .qm{font-family:var(--display);font-size:56px;line-height:.6;color:var(--lime-deep);margin-bottom:14px}
+.review blockquote{margin:0;font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:600;line-height:1.28;letter-spacing:-.018em}
+.review .who{margin-top:auto;padding-top:24px;display:flex;align-items:center;gap:12px}
+.review .av{width:42px;height:42px;border-radius:50%;background:var(--sea);color:var(--white);display:grid;place-items:center;font-weight:700;font-size:15px;flex:none;font-family:var(--body)}
+.review .who b{display:block;font-size:15.5px;line-height:1.3}
+.review .who .role{display:block;font-size:13px;color:var(--muted);line-height:1.4}
+.review-ph{
+  border:2px dashed #B9C9C6;background:repeating-linear-gradient(135deg,rgba(46,140,140,.045) 0 12px,transparent 12px 24px),var(--paper);
+  border-radius:var(--radius-lg);padding:clamp(26px,3.4vw,38px);
+  display:flex;flex-direction:column;justify-content:center;gap:12px;min-height:200px;
+}
+.review-ph .lbl{
+  align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--sea);border:1px solid rgba(46,140,140,.4);padding:4px 10px;border-radius:999px;background:var(--white);
+}
+.review-ph p{font-family:var(--display);font-size:clamp(19px,2.1vw,23px);font-weight:600;line-height:1.3;color:#3B5A5D;letter-spacing:-.015em}
+.review-ph small{font-size:13.5px;color:var(--muted);line-height:1.5;font-family:var(--body);font-weight:500}
+
+/* ---------- contact ---------- */
+.contact{background:var(--ink);color:var(--white);position:relative;overflow:hidden}
+.contact::before{
+  content:"";position:absolute;inset:auto -10% -55% 40%;height:420px;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,rgba(46,140,140,.35),transparent 66%);pointer-events:none;
+}
+.contact .wrap{position:relative}
+.contact-grid{display:grid;gap:clamp(30px,4vw,54px);align-items:start}
+@media (min-width:940px){.contact-grid{grid-template-columns:1.1fr .9fr}}
+.cbox{display:grid;gap:12px;margin-top:30px}
+.crow{
+  display:flex;align-items:center;gap:15px;text-decoration:none;
+  background:rgba(255,255,255,.055);border:1px solid var(--line-dark);
+  border-radius:16px;padding:16px 18px;transition:background .16s ease,border-color .16s ease,transform .16s ease;
+}
+.crow:hover{background:rgba(255,255,255,.1);border-color:rgba(200,243,92,.5);transform:translateX(3px)}
+.crow .ic{width:42px;height:42px;border-radius:12px;background:rgba(200,243,92,.15);color:var(--lime);display:grid;place-items:center;flex:none}
+.crow .ic svg{width:20px;height:20px}
+.crow small{display:block;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-on-dark);font-weight:700}
+.crow b{display:block;font-size:17px;font-weight:700;margin-top:3px;word-break:break-word}
+.quote-card{
+  background:var(--white);color:var(--text);border-radius:var(--radius-lg);
+  padding:clamp(26px,3.2vw,34px);box-shadow:var(--shadow-lg);
+}
+.quote-card h3{font-size:24px;margin-bottom:10px}
+.quote-card p{font-size:15.5px;color:var(--muted)}
+.quote-card ul{display:grid;gap:9px;margin:20px 0 24px}
+.quote-card li{display:flex;gap:11px;font-size:15px;align-items:flex-start;line-height:1.5}
+.quote-card li .tick{width:22px;height:22px;border-radius:50%;background:var(--sand);color:var(--sea);display:grid;place-items:center;flex:none;margin-top:1px}
+.quote-card li .tick svg{width:12px;height:12px}
+.quote-card .btn{width:100%}
+.quote-card .mini{margin-top:14px;font-size:13px;color:var(--muted);text-align:center}
+.contact-photo{margin-top:26px}
+.contact-photo .ph{aspect-ratio:16/9}
+.contact-photo img{object-position:center}
+
+/* ---------- footer ---------- */
+.footer{background:#04191D;color:var(--muted-on-dark);padding-block:44px;font-size:14.5px}
+.footer-top{display:grid;gap:26px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1)}
+@media (min-width:820px){.footer-top{grid-template-columns:1.3fr 1fr 1fr}}
+.footer h4{font-family:var(--display);color:var(--white);font-size:16px;margin-bottom:12px;font-weight:700}
+.footer a{color:var(--muted-on-dark);text-decoration:none}
+.footer a:hover{color:var(--lime)}
+.footer ul{display:grid;gap:8px}
+.footer .brand-name{color:var(--white)}
+.footer .brand-sub{color:#7E9C9C}
+.footer .brand{margin-right:0}
+.footer-bottom{padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;font-size:12.5px;color:#7E9C9C}
+.footer-note{
+  margin-top:22px;background:rgba(255,255,255,.05);border:1px dashed rgba(200,243,92,.35);
+  border-radius:14px;padding:14px 16px;font-size:13px;color:#BBD3D2;
+}
+.footer-note b{color:var(--lime)}
+
+/* ---------- mobile action bar ---------- */
+.mobile-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(7,43,49,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.mobile-bar .btn{flex:1;padding:12px 10px;font-size:14.5px}
+@media (min-width:600px){.mobile-bar{display:none}}
+@media (max-width:599px){body{padding-bottom:76px}}
+</style>
+</head>
+<body>
+
+<!-- concept bar -->
+<div class="concept">
+  <div class="wrap">
+    <span>Website concept prepared for <b>Scrubby Dubby Cleaning</b> by Scaled Solutions &middot; not yet live</span>
+    <span class="dot">&bull;</span>
+    <span>All photos are licensed placeholders, swapped for photos of Ash's own work before launch</span>
+  </div>
+</div>
+
+<!-- header -->
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true"></span>
+      <span>
+        <span class="brand-name">Scrubby Dubby</span>
+        <span class="brand-sub">Cleaning &middot; Northland</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#carpet">Carpet &amp; rugs</a>
+      <a href="#kitchens">Kitchens</a>
+      <a href="#areas">Areas</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="btn btn-dark" href="tel:+64226097587">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+      022 609 7587
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Kerikeri &middot; Bay of Islands &middot; Northland</span>
+        <h1>Carpets, Persian rugs and <em>commercial kitchens</em>, cleaned properly.</h1>
+        <p class="lede">Scrubby Dubby Cleaning is a small family owned cleaning business offering quality cleaning services, commercial and residential, across Kerikeri, Kaikohe and Kawakawa.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="tel:+64226097587">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Call 022 609 7587
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#quote">Get a quote</a>
+        </div>
+        <ul class="chips">
+          <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg>Family owned</li>
+          <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V7l8-4 8 4v14M9 21v-5h6v5M8 11h.01M12 11h.01M16 11h.01"/></svg>Commercial &amp; residential</li>
+          <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3zM3 10h18M7 18v2M17 18v2"/></svg>Carpet &amp; Persian rug cleaning</li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <div class="ph"><img src="images/clean-6.jpg" alt="Cleaner standing in a kitchen with a broom and a caddy of cleaning supplies" width="1600" height="1066"></div>
+        <div class="hero-badge">
+          <strong>Kerikeri, Kaikohe &amp; Kawakawa</strong>
+          <span>Working across the Bay of Islands</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- services -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="svc-head">
+        <div>
+          <span class="eyebrow">What we clean</span>
+          <h2>Seven services, one small local team.</h2>
+        </div>
+        <p class="lede">From a Persian rug in the lounge to the deep clean behind a cafe kitchen line. Same standard either way, and the people who quote the job are the people who do it.</p>
+      </div>
+
+      <ul class="grid-svc">
+        <li class="feature-cell">
+          <div class="card feature">
+            <span class="tag">Specialist</span>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v10H3zM3 11h18M3 14h18M6 17v3M18 17v3"/></svg></span>
+            <h3>Carpet cleaning</h3>
+            <p>Lounges, hallways, bedrooms and stairs. Carpet cleaned properly rather than surface tidied, in homes and in commercial spaces.</p>
+          </div>
+        </li>
+
+        <li class="feature-cell">
+          <div class="card feature">
+            <span class="tag">Specialist</span>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h20v8H2zM5 8v8M19 8v8M12 9.5 14 12l-2 2.5L10 12z"/></svg></span>
+            <h3>Persian rug cleaning</h3>
+            <p>A Persian rug is not wall to wall carpet and does not get treated like it. Tell us about your rug when you get in touch.</p>
+          </div>
+        </li>
+
+        <li class="feature-cell">
+          <div class="card feature">
+            <span class="tag">Specialist</span>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v3a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7zM7 10V4M11 10V4M15 10V4M2 21h20"/></svg></span>
+            <h3>Commercial kitchen &amp; cafe deep cleans</h3>
+            <p>Deep cleans for commercial kitchens and cafes, for the build up that a nightly wipe down never gets to.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="card">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h14V9.5M10 21v-6h4v6"/></svg></span>
+            <h3>Residential cleaning</h3>
+            <p>House cleaning for homes across the Bay of Islands.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="card">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6l8-3 8 3v15M2 21h20M8 9h.01M12 9h.01M16 9h.01M8 13h.01M12 13h.01M16 13h.01M10 21v-4h4v4"/></svg></span>
+            <h3>Commercial cleaning</h3>
+            <p>Cleaning for local businesses and premises around Northland.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="card">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M3 21h18M11 12h.01M16 8h4v13"/></svg></span>
+            <h3>Move out &amp; end of tenancy</h3>
+            <p>The full clean at the end of a tenancy so the place is handed back in proper order.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="card">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 17v-4l2-6h14l2 6v4M6.5 17v2h-2v-2M19.5 17v2h-2v-2M6 13h.01M18 13h.01"/></svg></span>
+            <h3>Vehicle interiors</h3>
+            <p>Interiors cleaned out: seats, carpets, mats and everything in between.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- carpet + rugs -->
+  <section class="band section" id="carpet">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Carpet &amp; Persian rugs</span>
+        <h2>The jobs most cleaners hand off, we do ourselves.</h2>
+        <p class="lede" style="margin-top:18px">Carpet cleaning and Persian rug cleaning sit at the centre of what Scrubby Dubby does. A rug that has been in the family for years deserves more care than a general clean, and that is exactly the sort of work we like getting called for.</p>
+        <ul class="pointlist">
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Carpet cleaning through homes and commercial spaces</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Persian rug cleaning, handled as its own job rather than an add on</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Often paired with a move out clean so the whole place goes back looking right</span></li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-dark" href="#quote">Ask about your carpet or rug</a>
+        </div>
+      </div>
+      <div class="split-media">
+        <div class="ph"><img src="images/clean-3.jpg" alt="Living room with a large round rug, sofa and coffee table" width="1066" height="1600" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- reviews -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <span class="eyebrow">In their words</span>
+      <h2>What people say.</h2>
+      <div class="reviews">
+        <div class="review">
+          <span class="qm" aria-hidden="true">&ldquo;</span>
+          <blockquote>That&rsquo;s absolutely stunning work!</blockquote>
+          <div class="who">
+            <span class="av" aria-hidden="true">PA</span>
+            <div class="who-txt">
+              <b>Patricia Adams</b>
+              <span class="role">On a carpet cleaning post on our Facebook page</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-ph">
+          <span class="lbl">Placeholder</span>
+          <p>More reviews to go here once Ash sends them through.</p>
+          <small>Note for Ash: two or three lines from recent customers, first name and suburb is plenty. They drop straight into this space.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- commercial kitchens -->
+  <section class="band band-dark section" id="kitchens">
+    <div class="wrap split rev">
+      <div class="split-media">
+        <div class="collage">
+          <div class="ph"><img src="images/clean-4.jpg" alt="Kitchen with open shelving, cookware and a stone benchtop" width="1280" height="1600" loading="lazy"></div>
+          <div class="ph"><img src="images/clean-5.jpg" alt="Bright kitchen with a large island bench and sink" width="1600" height="1066" loading="lazy"></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow on-dark">Commercial kitchens &amp; cafes</span>
+        <h2>Deep cleans for the back of house.</h2>
+        <p class="lede on-dark" style="margin-top:18px">Cafe and restaurant kitchens take a hammering, and there is only so much a close down clean can reach. Scrubby Dubby does the deep cleans: the grease, the grime and the corners that build up quietly week after week.</p>
+        <ul class="pointlist">
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Deep cleans for commercial kitchens and cafes</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>General commercial cleaning for Northland businesses</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Tell us your trading hours when you call and we will work around them</span></li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="tel:+64226097587">Call about a kitchen deep clean</a>
+          <a class="btn btn-ghost-light" href="mailto:scrubbydubbycleaning@gmail.com?subject=Commercial%20kitchen%20deep%20clean%20enquiry">Email us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- areas -->
+  <section class="section" id="areas">
+    <div class="wrap">
+      <div class="svc-head">
+        <div>
+          <span class="eyebrow">Where we work</span>
+          <h2>Based in Kerikeri, out across the Bay of Islands.</h2>
+        </div>
+        <p class="lede">Local means local. We are not driving up from Auckland for the day, we live and work here in Northland.</p>
+      </div>
+      <div class="areas">
+        <div class="area">
+          <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <h3>Kerikeri</h3>
+          <p>Home base. Homes, businesses and cafes right through town.</p>
+        </div>
+        <div class="area">
+          <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <h3>Kaikohe</h3>
+          <p>Residential and commercial cleaning, carpets and rugs included.</p>
+        </div>
+        <div class="area">
+          <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <h3>Kawakawa</h3>
+          <p>Same services, same standard, same short drive.</p>
+        </div>
+      </div>
+      <p class="area-note">Somewhere else in the Bay of Islands? <a href="tel:+64226097587">Give us a call</a> and we will let you know if we can get to you.</p>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section class="band section" id="about">
+    <div class="wrap split">
+      <div class="split-media">
+        <div class="ph"><img src="images/clean-2.jpg" alt="Cleaner working through the detail of a room inside a house" width="1600" height="1066" loading="lazy"></div>
+      </div>
+      <div>
+        <span class="eyebrow">Family owned</span>
+        <h2>A small family business, and it shows in the work.</h2>
+        <p class="lede" style="margin-top:18px">Scrubby Dubby Cleaning is run by Ash Hook out of Kerikeri. Small, family owned, and hands on. There is no call centre and no franchise office in another city, just the people who turn up and do the job.</p>
+        <div class="pull">
+          <q>It&rsquo;s good to work with a partner, that way you can tackle the bigger jobs together.</q>
+          <cite>Ash Hook, Scrubby Dubby Cleaning, quoted in the Northern Advocate, March 2025</cite>
+        </div>
+        <ul class="pointlist">
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>One number and one email, straight through to the people doing the job</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Commercial and residential, from cafe kitchens to family homes</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Bigger jobs tackled as a pair, so they get done in one go</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section class="contact section" id="quote">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="eyebrow on-dark">Get in touch</span>
+        <h2>Get a quote for your clean.</h2>
+        <p class="lede on-dark" style="margin-top:18px">Every job is a bit different, so there is no set price list. Tell us what needs cleaning and where it is, and we will come back to you with a price.</p>
+        <div class="cbox">
+          <a class="crow" href="tel:+64226097587">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <span><small>Phone</small><b>022 609 7587</b></span>
+          </a>
+          <a class="crow" href="mailto:scrubbydubbycleaning@gmail.com?subject=Cleaning%20quote%20enquiry">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+            <span><small>Email</small><b>scrubbydubbycleaning@gmail.com</b></span>
+          </a>
+          <a class="crow" href="https://www.facebook.com/scrubbydubbycleaning" target="_blank" rel="noopener">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7.5c0-.8.2-1.2 1.3-1.2H17V3.2A18 18 0 0 0 14.7 3C12 3 10.3 4.6 10.3 7.4V9H7.5v3.4h2.8V21H14v-8.6h2.6l.4-3.4Z"/></svg></span>
+            <span><small>Facebook</small><b>facebook.com/scrubbydubbycleaning</b></span>
+          </a>
+        </div>
+        <div class="contact-photo">
+          <div class="ph"><img src="images/clean-1.jpg" alt="Gloved hand holding a spray bottle" width="1600" height="1066" loading="lazy"></div>
+        </div>
+      </div>
+
+      <aside class="quote-card">
+        <h3>Handy things to mention</h3>
+        <p>It helps us price the job first time round.</p>
+        <ul>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>What needs cleaning: carpet, rug, kitchen, whole house, vehicle</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Whereabouts you are: Kerikeri, Kaikohe, Kawakawa or nearby</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>Rough size, and whether it is a one off or ongoing</span></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg></span><span>When you need it done by</span></li>
+        </ul>
+        <a class="btn btn-primary btn-lg" href="tel:+64226097587">Call 022 609 7587</a>
+        <p class="mini">Or email <a href="mailto:scrubbydubbycleaning@gmail.com" style="color:var(--sea);font-weight:700">scrubbydubbycleaning@gmail.com</a></p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:12px">
+          <span class="mark" aria-hidden="true"></span>
+          <span>
+            <span class="brand-name">Scrubby Dubby</span>
+            <span class="brand-sub">Cleaning &middot; Northland</span>
+          </span>
+        </a>
+        <p style="max-width:36ch">Quality cleaning services. A small family owned cleaning business, commercial and residential, operating in Northland.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#carpet">Carpet cleaning</a></li>
+          <li><a href="#carpet">Persian rug cleaning</a></li>
+          <li><a href="#kitchens">Commercial kitchen &amp; cafe deep cleans</a></li>
+          <li><a href="#services">Residential cleaning</a></li>
+          <li><a href="#services">Commercial cleaning</a></li>
+          <li><a href="#services">Move out &amp; end of tenancy</a></li>
+          <li><a href="#services">Vehicle interiors</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+64226097587">022 609 7587</a></li>
+          <li><a href="mailto:scrubbydubbycleaning@gmail.com">scrubbydubbycleaning@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/scrubbydubbycleaning" target="_blank" rel="noopener">Facebook</a></li>
+          <li>Kerikeri, Kaikohe &amp; Kawakawa</li>
+          <li>Bay of Islands, Northland</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      <b>Concept note for Ash:</b> this is a draft website prepared by Scaled Solutions and it is not live yet. The photos are licensed placeholders and get swapped for photos of your own work, and the review space fills up as you send customer comments through.
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Scrubby Dubby Cleaning</span>
+      <span>Concept by Scaled Solutions &middot; not yet live</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobile-bar" aria-label="Quick contact">
+  <a class="btn btn-primary" href="tel:+64226097587">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+    Call
+  </a>
+  <a class="btn btn-ghost-light" href="mailto:scrubbydubbycleaning@gmail.com?subject=Cleaning%20quote%20enquiry">Email a quote</a>
+</nav>
+
+</body>
+</html>
