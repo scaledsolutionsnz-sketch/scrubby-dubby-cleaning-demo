@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scrubby Dubby Cleaning &middot; Kerikeri, Bay of Islands</title>
 <meta name="description" content="Scrubby Dubby Cleaning is a small family owned cleaning business in Kerikeri. Carpet and Persian rug cleaning, commercial kitchen and cafe deep cleans, residential and commercial cleaning across the Bay of Islands.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23072B31'/%3E%3Ccircle cx='13' cy='13' r='5.5' fill='%23C8F35C'/%3E%3Ccircle cx='22' cy='21' r='3.5' fill='%232E8C8C'/%3E%3C/svg%3E">
+<link rel="icon" href="images/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -85,12 +86,10 @@ section[id]{scroll-margin-top:96px}
 .header .wrap{display:flex;align-items:center;gap:16px;min-height:70px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
 .mark{
-  width:38px;height:38px;border-radius:12px;flex:none;
-  background:var(--ink);position:relative;
+  width:42px;height:42px;border-radius:13px;flex:none;
+  background:var(--ink);display:grid;place-items:center;padding:7px 8px;
 }
-.mark::before,.mark::after{content:"";position:absolute;border-radius:50%}
-.mark::before{width:16px;height:16px;background:var(--lime);left:7px;top:7px}
-.mark::after{width:11px;height:11px;background:var(--sea-light);right:6px;bottom:6px}
+.mark img{width:100%;height:100%;object-fit:contain}
 .brand-name{font-family:var(--display);font-weight:900;font-size:19px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
 .brand-sub{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
 .nav{display:none;gap:26px;font-size:15px;font-weight:600}
@@ -122,14 +121,6 @@ section[id]{scroll-margin-top:96px}
 /* ---------- photo frames + placeholder marker ---------- */
 .ph{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--sand);isolation:isolate}
 .ph img{width:100%;height:100%;object-fit:cover}
-.ph::after{
-  content:"placeholder image";
-  position:absolute;right:10px;bottom:10px;
-  font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
-  color:rgba(255,255,255,.92);background:rgba(7,43,49,.62);
-  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-  padding:5px 9px;border-radius:999px;pointer-events:none;
-}
 
 /* ---------- eyebrow / heads ---------- */
 .eyebrow{
@@ -174,8 +165,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 }
 .chip svg{width:14px;height:14px;color:var(--sea-light);flex:none}
 .hero-media{position:relative}
-.hero-media .ph{aspect-ratio:4/3;box-shadow:var(--shadow-lg)}
-@media (min-width:960px){.hero-media .ph{aspect-ratio:5/4}}
+.hero-media .ph{aspect-ratio:4/5;box-shadow:var(--shadow-lg)}
 .hero-badge{
   position:absolute;left:-6px;bottom:-20px;
   background:var(--ink);color:var(--white);
@@ -300,6 +290,19 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 .review-ph p{font-family:var(--display);font-size:clamp(19px,2.1vw,23px);font-weight:600;line-height:1.3;color:#3B5A5D;letter-spacing:-.015em}
 .review-ph small{font-size:13.5px;color:var(--muted);line-height:1.5;font-family:var(--body);font-weight:500}
 
+/* ---------- work gallery ---------- */
+.gal{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:clamp(30px,4vw,44px)}
+.gal>li{display:flex;flex-direction:column;gap:9px}
+.gal .ph{aspect-ratio:3/4;box-shadow:var(--shadow);flex:1}
+.gal>li:first-child{grid-column:span 2}
+.gal>li:first-child .ph{aspect-ratio:4/5}
+.gal .cap{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+@media (min-width:900px){
+  .gal{grid-template-columns:repeat(4,1fr);gap:16px}
+  .gal>li:first-child{grid-column:span 2;grid-row:span 2}
+  .gal>li:first-child .ph{aspect-ratio:auto}
+}
+
 /* ---------- contact ---------- */
 .contact{background:var(--ink);color:var(--white);position:relative;overflow:hidden}
 .contact::before{
@@ -333,7 +336,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 .quote-card .btn{width:100%}
 .quote-card .mini{margin-top:14px;font-size:13px;color:var(--muted);text-align:center}
 .contact-photo{margin-top:26px}
-.contact-photo .ph{aspect-ratio:16/9}
+.contact-photo .ph{aspect-ratio:4/3}
 .contact-photo img{object-position:center}
 
 /* ---------- footer ---------- */
@@ -344,9 +347,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 .footer a{color:var(--muted-on-dark);text-decoration:none}
 .footer a:hover{color:var(--lime)}
 .footer ul{display:grid;gap:8px}
-.footer .brand-name{color:var(--white)}
-.footer .brand-sub{color:#7E9C9C}
-.footer .brand{margin-right:0}
+.footer-logo{display:block;width:min(232px,64vw);height:auto;margin-bottom:18px}
 .footer-bottom{padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;font-size:12.5px;color:#7E9C9C}
 .footer-note{
   margin-top:22px;background:rgba(255,255,255,.05);border:1px dashed rgba(200,243,92,.35);
@@ -373,7 +374,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
   <div class="wrap">
     <span>Website concept prepared for <b>Scrubby Dubby Cleaning</b> by Scaled Solutions &middot; not yet live</span>
     <span class="dot">&bull;</span>
-    <span>All photos are licensed placeholders, swapped for photos of Ash's own work before launch</span>
+    <span>Photos and logo supplied by Scrubby Dubby Cleaning</span>
   </div>
 </div>
 
@@ -381,7 +382,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 <header class="header">
   <div class="wrap">
     <a class="brand" href="#top">
-      <span class="mark" aria-hidden="true"></span>
+      <span class="mark"><img src="images/logo-mark.png" alt="" width="268" height="320"></span>
       <span>
         <span class="brand-name">Scrubby Dubby</span>
         <span class="brand-sub">Cleaning &middot; Northland</span>
@@ -391,6 +392,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
       <a href="#services">Services</a>
       <a href="#carpet">Carpet &amp; rugs</a>
       <a href="#kitchens">Kitchens</a>
+      <a href="#work">Our work</a>
       <a href="#areas">Areas</a>
       <a href="#about">About</a>
     </nav>
@@ -424,7 +426,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
         </ul>
       </div>
       <div class="hero-media">
-        <div class="ph"><img src="images/clean-6.jpg" alt="Cleaner standing in a kitchen with a broom and a caddy of cleaning supplies" width="1600" height="1066"></div>
+        <div class="ph"><img src="images/kitchen-timber-ceiling.webp" alt="Kitchen with a timber ceiling, red glass splashback and a clean stone benchtop, looking out over the Bay of Islands" width="765" height="1020" fetchpriority="high"></div>
         <div class="hero-badge">
           <strong>Kerikeri, Kaikohe &amp; Kawakawa</strong>
           <span>Working across the Bay of Islands</span>
@@ -524,7 +526,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
         </div>
       </div>
       <div class="split-media">
-        <div class="ph"><img src="images/clean-3.jpg" alt="Living room with a large round rug, sofa and coffee table" width="1066" height="1600" loading="lazy"></div>
+        <div class="ph"><img src="images/home-kitchen-plants.webp" alt="Open plan kitchen and dining space in a home, with polished timber floorboards and house plants" width="765" height="1020" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -560,8 +562,8 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
     <div class="wrap split rev">
       <div class="split-media">
         <div class="collage">
-          <div class="ph"><img src="images/clean-4.jpg" alt="Kitchen with open shelving, cookware and a stone benchtop" width="1280" height="1600" loading="lazy"></div>
-          <div class="ph"><img src="images/clean-5.jpg" alt="Bright kitchen with a large island bench and sink" width="1600" height="1066" loading="lazy"></div>
+          <div class="ph"><img src="images/kitchen-brass-tap.webp" alt="Kitchen bench and sink cleaned down, with open shelving and a window over the garden" width="765" height="1020" loading="lazy"></div>
+          <div class="ph"><img src="images/kitchen-timber-benchtop.webp" alt="Kitchen with a timber benchtop, tiled splashback and freshly cleaned floor tiles" width="765" height="1020" loading="lazy"></div>
         </div>
       </div>
       <div>
@@ -578,6 +580,41 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
           <a class="btn btn-ghost-light" href="mailto:scrubbydubbycleaning@gmail.com?subject=Commercial%20kitchen%20deep%20clean%20enquiry">Email us</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- recent work -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="svc-head">
+        <div>
+          <span class="eyebrow">Recent work</span>
+          <h2>A few rooms from recent jobs.</h2>
+        </div>
+        <p class="lede">Kitchens and bathrooms photographed at the end of the job. No staging and no stock photos, just how the rooms were handed back.</p>
+      </div>
+      <ul class="gal">
+        <li>
+          <div class="ph"><img src="images/bathroom-bath-brass.webp" alt="Bathroom with a curved bath, round basin on a timber vanity and brass tapware" width="765" height="1020" loading="lazy"></div>
+          <span class="cap">Bathroom</span>
+        </li>
+        <li>
+          <div class="ph"><img src="images/bathroom-vanity-black.webp" alt="Bathroom with a white wall hung vanity, round mirror and a walk in shower" width="765" height="1020" loading="lazy"></div>
+          <span class="cap">Bathroom</span>
+        </li>
+        <li>
+          <div class="ph"><img src="images/kitchen-galley-timber.webp" alt="Galley kitchen with a stone benchtop and sink over polished timber floorboards" width="574" height="1020" loading="lazy"></div>
+          <span class="cap">Kitchen</span>
+        </li>
+        <li>
+          <div class="ph"><img src="images/bathroom-freestanding-bath.webp" alt="Tiled bathroom with a freestanding bath and a long white vanity" width="765" height="1020" loading="lazy"></div>
+          <span class="cap">Bathroom</span>
+        </li>
+        <li>
+          <div class="ph"><img src="images/shower-room-compact.webp" alt="Compact shower room with a glass shower, basin and mirror" width="480" height="640" loading="lazy"></div>
+          <span class="cap">Shower room</span>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -616,7 +653,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
   <section class="band section" id="about">
     <div class="wrap split">
       <div class="split-media">
-        <div class="ph"><img src="images/clean-2.jpg" alt="Cleaner working through the detail of a room inside a house" width="1600" height="1066" loading="lazy"></div>
+        <div class="ph"><img src="images/kitchen-island-open.webp" alt="Large open plan kitchen with an island bench and stools, cleaned through end to end" width="765" height="1020" loading="lazy"></div>
       </div>
       <div>
         <span class="eyebrow">Family owned</span>
@@ -657,7 +694,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
           </a>
         </div>
         <div class="contact-photo">
-          <div class="ph"><img src="images/clean-1.jpg" alt="Gloved hand holding a spray bottle" width="1600" height="1066" loading="lazy"></div>
+          <div class="ph"><img src="images/bathroom-tiled-view.webp" alt="Tiled bathroom with twin basins and a window looking out across the Northland hills" width="1360" height="1020" loading="lazy"></div>
         </div>
       </div>
 
@@ -682,12 +719,8 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <a class="brand" href="#top" style="margin-bottom:12px">
-          <span class="mark" aria-hidden="true"></span>
-          <span>
-            <span class="brand-name">Scrubby Dubby</span>
-            <span class="brand-sub">Cleaning &middot; Northland</span>
-          </span>
+        <a href="#top" aria-label="Scrubby Dubby Cleaning, back to top">
+          <img class="footer-logo" src="images/logo-lockup.png" alt="Scrubby Dubby cleaning services" width="900" height="583">
         </a>
         <p style="max-width:36ch">Quality cleaning services. A small family owned cleaning business, commercial and residential, operating in Northland.</p>
       </div>
@@ -715,7 +748,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
       </div>
     </div>
     <div class="footer-note">
-      <b>Concept note for Ash:</b> this is a draft website prepared by Scaled Solutions and it is not live yet. The photos are licensed placeholders and get swapped for photos of your own work, and the review space fills up as you send customer comments through.
+      <b>Concept note for Ash:</b> this is a draft website prepared by Scaled Solutions and it is not live yet. Your logo and your own job photos are in. The review space fills up as you send customer comments through, and there is room for more photos whenever you have them.
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Scrubby Dubby Cleaning</span>
