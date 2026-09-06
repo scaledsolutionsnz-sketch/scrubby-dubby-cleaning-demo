@@ -86,12 +86,13 @@ section[id]{scroll-margin-top:96px}
 .header .wrap{display:flex;align-items:center;gap:16px;min-height:70px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
 .mark{
-  width:42px;height:42px;border-radius:13px;flex:none;
-  background:var(--ink);display:grid;place-items:center;padding:7px 8px;
+  width:38px;height:38px;border-radius:12px;flex:none;
+  background:var(--ink);display:grid;place-items:center;padding:6px 7px;
 }
 .mark img{width:100%;height:100%;object-fit:contain}
 .brand-name{font-family:var(--display);font-weight:900;font-size:19px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
 .brand-sub{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
+@media (max-width:520px){.brand-sub{display:block}}
 .nav{display:none;gap:26px;font-size:15px;font-weight:600}
 .nav a{text-decoration:none;color:var(--ink);opacity:.82;padding-block:6px}
 .nav a:hover{opacity:1;color:var(--sea)}
@@ -150,11 +151,13 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 .hero-grid{display:grid;gap:clamp(30px,4.5vw,52px);align-items:center}
 @media (min-width:960px){.hero-grid{grid-template-columns:1.04fr .96fr}}
 .hero h1{margin-bottom:22px}
-.hero h1 em{font-style:normal;color:var(--sea);position:relative;z-index:0;isolation:isolate;white-space:nowrap}
-.hero h1 em::after{
-  content:"";position:absolute;left:0;right:0;bottom:.06em;height:.28em;
-  background:rgba(200,243,92,.55);z-index:-1;border-radius:3px;
+.hero h1 em{
+  font-style:normal;color:var(--sea);
+  /* highlight as a background so the phrase can wrap on narrow screens */
+  background:linear-gradient(rgba(200,243,92,.55),rgba(200,243,92,.55)) 0 calc(100% - .06em)/100% .28em no-repeat;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
 }
+@media (min-width:620px){.hero h1 em{white-space:nowrap}}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
 .chip{
