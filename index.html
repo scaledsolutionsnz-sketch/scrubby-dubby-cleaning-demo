@@ -163,7 +163,7 @@ section[id]{scroll-margin-top:96px}
 
 /* ---------- photo frames ---------- */
 .ph{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--sand);isolation:isolate}
-.ph img{width:100%;height:100%;object-fit:cover}
+.ph img{width:100%;height:auto;display:block}
 
 /* ---------- eyebrow / heads ---------- */
 .eyebrow{
@@ -231,6 +231,26 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 .trust b{font-size:15px;font-weight:700;color:var(--white);line-height:1.25}
 .trust span{display:block;font-size:12.5px;color:#C6DAD9;font-weight:500;line-height:1.35}
 .trust .sep{width:1px;height:30px;background:rgba(255,255,255,.25);flex:none}
+.trust-slot{position:relative;display:block;min-width:min(340px,62vw);min-height:44px}
+.trust-item{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none}
+.trust-item.on{opacity:1;position:relative;pointer-events:auto}
+.trust-score{display:block;text-align:left;flex:none}
+.trust-score b{font-size:19px;line-height:1.05}
+@media (max-width:640px){
+  .trust{width:100%}
+  .trust-slot{min-width:0;width:100%}
+}
+
+/* real Google reviews: one featured, the rest in a supporting column */
+.rev-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;align-items:start}
+.rev-grid .review{background:var(--white);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow)}
+.rev-grid .review blockquote{margin:12px 0 18px;font-size:17px;line-height:1.55}
+.rev-feature blockquote{font-size:20px;line-height:1.5}
+.rev-rest{display:grid;gap:18px}
+.rev-rest .review{padding:22px}
+.rev-rest .review blockquote{font-size:15.5px;margin:10px 0 14px}
+.rev-more{margin-top:20px;font-size:14.5px;color:var(--ink-soft)}
+@media (max-width:900px){.rev-grid{grid-template-columns:1fr}}
 @media (max-width:520px){.trust .sep{display:none}}
 
 /* ---------- trust chips strip ---------- */
@@ -276,11 +296,8 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
   .split{grid-template-columns:1fr 1fr}
   .split.rev .split-media{order:-1}
 }
-.split-media .ph{aspect-ratio:4/5;box-shadow:var(--shadow)}
-@media (min-width:920px){.split-media .ph{aspect-ratio:3/4}}
+.split-media .ph{box-shadow:var(--shadow)}
 .collage{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
-.collage .ph:first-child{aspect-ratio:3/4}
-.collage .ph:last-child{aspect-ratio:1/1}
 .pointlist{display:grid;gap:14px;margin-top:26px}
 .pointlist li{display:flex;gap:13px;align-items:flex-start;font-size:16px;line-height:1.55}
 .pointlist .tick{
@@ -303,7 +320,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 /* ---------- work gallery ---------- */
 .gal{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:clamp(30px,4vw,44px)}
 .gal>li{display:flex;flex-direction:column;gap:9px}
-.gal .ph{aspect-ratio:3/4;box-shadow:var(--shadow);flex:1}
+.gal .ph{box-shadow:var(--shadow);flex:1}
 .gal>li:first-child{grid-column:span 2}
 .gal>li:first-child .ph{aspect-ratio:4/5}
 .gal .cap{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
@@ -529,7 +546,7 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
       <img src="images/bathroom-bath-brass.webp" alt="" width="765" height="1020" loading="lazy">
     </div>
     <div class="wrap reveal">
-      <span class="eyebrow on-dark">Kerikeri &middot; Bay of Islands &middot; Northland</span>
+      <span class="eyebrow on-dark">Kerikeri, Bay of Islands and Northland</span>
       <h1>Carpets, Persian rugs and <em>commercial kitchens</em>, cleaned properly.</h1>
       <p class="lede">Scrubby Dubby Cleaning is a small family owned cleaning business offering quality cleaning services, commercial and residential, across Kerikeri, Kaikohe and Kawakawa.</p>
       <div class="hero-cta">
@@ -539,17 +556,11 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
         </a>
         <a class="btn btn-ghost-light btn-lg" href="#quote">Get a quote</a>
       </div>
-      <div class="trust">
-        <span class="stars" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-        </span>
-        <span><b>&ldquo;Absolutely stunning work&rdquo;</b><span>Customer feedback on our Facebook page</span></span>
+      <div class="trust" id="heroReview" aria-live="polite">
+        <span class="stars" aria-label="Rated five out of five"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg></span>
+        <span class="trust-slot" id="heroReviewSlot"></span>
         <span class="sep" aria-hidden="true"></span>
-        <span><b>Family owned</b><span>Kerikeri, Kaikohe &amp; Kawakawa</span></span>
+        <span class="trust-score"><b>5.0</b><span>39 Google reviews</span></span>
       </div>
     </div>
   </section>
@@ -571,7 +582,6 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
     <div class="wrap">
       <div class="svc-head">
         <div>
-          <span class="eyebrow">What we clean</span>
           <h2>Seven services, one small local team.</h2>
         </div>
         <p class="lede">From a Persian rug in the lounge to the deep clean behind a cafe kitchen line. Same standard either way, and the people who quote the job are the people who do it.</p>
@@ -672,7 +682,6 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
   <section class="band section" id="carpet">
     <div class="wrap split">
       <div>
-        <span class="eyebrow">Carpet &amp; Persian rugs</span>
         <h2>The jobs most cleaners hand off, we do ourselves.</h2>
         <p class="lede" style="margin-top:18px">Carpet cleaning and Persian rug cleaning sit at the centre of what Scrubby Dubby does. A rug that has been in the family for years deserves more care than a general clean, and that is exactly the sort of work we like getting called for.</p>
         <ul class="pointlist">
@@ -721,7 +730,6 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
     <div class="wrap">
       <div class="svc-head">
         <div>
-          <span class="eyebrow">Recent work</span>
           <h2>A few rooms from recent jobs.</h2>
         </div>
         <p class="lede">Kitchens and bathrooms photographed at the end of the job. No staging and no stock photos, just how the rooms were handed back.</p>
@@ -748,7 +756,6 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
     <div class="wrap">
       <div class="rev-head">
         <div>
-          <span class="eyebrow">In their words</span>
           <h2>What people say.</h2>
         </div>
         <div class="rev-actions">
@@ -759,30 +766,66 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
           <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Scrubby+Dubby+Cleaning+Kerikeri+Northland" target="_blank" rel="noopener">See all our Google reviews</a>
         </div>
       </div>
-      <div class="reviews">
-        <div class="review">
-          <span class="stars" aria-label="Five stars">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg>
-          </span>
-          <blockquote>That&rsquo;s absolutely stunning work!</blockquote>
+      <div class="rev-grid">
+        <article class="review rev-feature">
+          <span class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg></span>
+          <blockquote>&ldquo;Thank you for doing such an amazing impeccable job Ash and boys. I was delightfully surprised to see how clean the rental property was.&rdquo;</blockquote>
           <div class="who">
-            <span class="av" aria-hidden="true">PA</span>
+            <span class="av" aria-hidden="true">SE</span>
             <div class="who-txt">
-              <b>Patricia Adams</b>
-              <span class="role">On a carpet cleaning post on our Facebook page</span>
+              <b>SetApartOne</b>
+              <span class="role">Rental property clean</span>
             </div>
           </div>
-        </div>
-        <div class="review-ph">
-          <span class="lbl">Placeholder</span>
-          <p>More reviews to go here once Ash sends them through.</p>
-          <small>Note for Ash: two or three lines from recent customers, first name and suburb is plenty. They drop straight into this space. The two buttons above currently point at a Google Maps search for the business, so send through your Google Business Profile link and they will point straight at your review page.</small>
+        </article>
+        <div class="rev-rest">
+        <article class="review">
+          <span class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg></span>
+          <blockquote>&ldquo;The Scrubby Dubby crew just spent two days doing a deep clean in my cafe. A commercial kitchen brings extra work. The effort I saw was amazing.&rdquo;</blockquote>
+          <div class="who">
+            <span class="av" aria-hidden="true">KM</span>
+            <div class="who-txt">
+              <b>Kelly Musante</b>
+              <span class="role">Cafe deep clean</span>
+            </div>
+          </div>
+        </article>
+        <article class="review">
+          <span class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg></span>
+          <blockquote>&ldquo;So thankful for them coming in to get our homes on our papakainga in order. Over 10 hours getting our two houses and our shed sorted.&rdquo;</blockquote>
+          <div class="who">
+            <span class="av" aria-hidden="true">HJ</span>
+            <div class="who-txt">
+              <b>Haukura Jones</b>
+              <span class="role">Papakainga homes, Hihi</span>
+            </div>
+          </div>
+        </article>
+        <article class="review">
+          <span class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg></span>
+          <blockquote>&ldquo;Ash did a great job on my Hilux 4x4, and in the home did a super job on the Persian rugs and the bedroom carpets.&rdquo;</blockquote>
+          <div class="who">
+            <span class="av" aria-hidden="true">KL</span>
+            <div class="who-txt">
+              <b>Kelvin Little</b>
+              <span class="role">Rugs and vehicle clean</span>
+            </div>
+          </div>
+        </article>
+        <article class="review">
+          <span class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9Z"/></svg></span>
+          <blockquote>&ldquo;We engaged Kahla and Ash to carry out a deep clean of my home before a crowd of visitors arrived for the summer holidays.&rdquo;</blockquote>
+          <div class="who">
+            <span class="av" aria-hidden="true">EF</span>
+            <div class="who-txt">
+              <b>Esmae Farrington</b>
+              <span class="role">Home deep clean</span>
+            </div>
+          </div>
+        </article>
         </div>
       </div>
+      <p class="rev-more">Reviews shown are from the Scrubby Dubby Cleaning Google Business Profile.</p>
     </div>
   </section>
 
@@ -824,7 +867,6 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
         <div class="ph"><img src="images/bathroom-tiled-view.webp" alt="Tiled bathroom with twin basins and a window looking out across the Northland hills" width="1360" height="1020" loading="lazy"></div>
       </div>
       <div>
-        <span class="eyebrow">Family owned</span>
         <h2>A small family business, and it shows in the work.</h2>
         <p class="lede" style="margin-top:18px">Scrubby Dubby Cleaning is run by Ash Hook out of Kerikeri. Small, family owned, and hands on. There is no call centre and no franchise office in another city, just the people who turn up and do the job.</p>
         <div class="pull">
@@ -844,7 +886,6 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
   <section class="contact section" id="quote">
     <div class="wrap contact-grid">
       <div>
-        <span class="eyebrow on-dark">Get in touch</span>
         <h2>Get a quote for your clean.</h2>
         <p class="lede on-dark" style="margin-top:18px">Every job is a bit different, so there is no set price list. Tell us what needs cleaning and where it is, and we will come back to you with a price.</p>
 
@@ -999,5 +1040,32 @@ h3{font-size:clamp(20px,2.1vw,24px);font-weight:700}
 })();
 </script>
 
+
+<script>
+(function(){
+  var slot = document.getElementById('heroReviewSlot');
+  if(!slot) return;
+  var quotes = [
+    {t:'Delightfully surprised to see how clean the rental property was.', n:'SetApartOne, rental clean'},
+    {t:'Two days deep cleaning my cafe. The effort I saw was amazing.',    n:'Kelly Musante, cafe kitchen'},
+    {t:'Over 10 hours getting our two houses and our shed sorted.',        n:'Haukura Jones, Hihi'},
+    {t:'A super job on the Persian rugs and the bedroom carpets.',         n:'Kelvin Little, rugs and carpets'},
+    {t:'A deep clean of my home before the summer holiday visitors.',      n:'Esmae Farrington, home clean'}
+  ];
+  quotes.forEach(function(q,i){
+    var d = document.createElement('span');
+    d.className = 'trust-item' + (i === 0 ? ' on' : '');
+    d.innerHTML = '<b>&ldquo;' + q.t + '&rdquo;</b><span>' + q.n + '</span>';
+    slot.appendChild(d);
+  });
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = slot.querySelectorAll('.trust-item'), i = 0;
+  setInterval(function(){
+    items[i].classList.remove('on');
+    i = (i + 1) % items.length;
+    items[i].classList.add('on');
+  }, 5200);
+})();
+</script>
 </body>
 </html>
